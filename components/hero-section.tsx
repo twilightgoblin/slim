@@ -36,7 +36,27 @@ export function HeroSection() {
     setIsMobileMenuOpen(!isMobileMenuOpen)
   }
 
-  const navItems = ["About", "Services", "Blog", "Contact"]
+  const scrollToSection = (href: string) => {
+    if (href === "#") {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    } else {
+      const element = document.querySelector(href)
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' })
+      }
+    }
+    setIsMobileMenuOpen(false)
+  }
+
+  const navItems = [
+    { name: "Home", href: "#" },
+    { name: "Our Services", href: "#hero-services" },
+    { name: "About Us", href: "#about-section" },
+    { name: "Service Areas", href: "#service-areas-section" },
+    { name: "Testimonials", href: "#testimonials-section" },
+    { name: "FAQS", href: "#faq-section" },
+    { name: "Contact Us", href: "#cta-section" }
+  ]
 
   return (
     <section className="relative min-h-screen bg-white overflow-hidden">
@@ -62,13 +82,13 @@ export function HeroSection() {
               {/* Desktop Navigation */}
               <div className="hidden md:flex items-center gap-8">
                 {navItems.map((item) => (
-                  <a
-                    key={item}
-                    href="#"
+                  <button
+                    key={item.name}
+                    onClick={() => scrollToSection(item.href)}
                     className="text-sm font-medium text-gray-700 hover:text-[#c83232] transition-colors duration-200"
                   >
-                    {item}
-                  </a>
+                    {item.name}
+                  </button>
                 ))}
               </div>
 
@@ -102,14 +122,13 @@ export function HeroSection() {
                 {/* Mobile Navigation Links */}
                 <div className="space-y-3">
                   {navItems.map((item) => (
-                    <a
-                      key={item}
-                      href="#"
-                      className="block text-base font-medium text-gray-700 hover:text-[#c83232] transition-colors duration-200 py-2"
-                      onClick={() => setIsMobileMenuOpen(false)}
+                    <button
+                      key={item.name}
+                      onClick={() => scrollToSection(item.href)}
+                      className="block w-full text-left text-base font-medium text-gray-700 hover:text-[#c83232] transition-colors duration-200 py-2"
                     >
-                      {item}
-                    </a>
+                      {item.name}
+                    </button>
                   ))}
                 </div>
                 
@@ -126,7 +145,10 @@ export function HeroSection() {
                   <Button 
                     size="default"
                     className="w-full bg-[#c83232] hover:bg-[#a82828] text-white rounded-full h-11 text-base font-semibold"
-                    onClick={() => setIsMobileMenuOpen(false)}
+                    onClick={() => {
+                      scrollToSection("#cta-section")
+                      setIsMobileMenuOpen(false)
+                    }}
                   >
                     Book Now
                     <ArrowRight className="w-4 h-4 ml-2" />
