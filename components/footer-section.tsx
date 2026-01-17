@@ -1,0 +1,223 @@
+"use client"
+
+import { useState, useEffect } from "react"
+import { Button } from "@/components/ui/button"
+import { 
+  Phone, 
+  Mail, 
+  MapPin,
+  Star,
+  ArrowRight
+} from "lucide-react"
+import Image from "next/image"
+
+export function FooterSection() {
+  const [isVisible, setIsVisible] = useState(false)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true)
+        }
+      },
+      { threshold: 0.1 }
+    )
+
+    const element = document.getElementById('footer-section')
+    if (element) observer.observe(element)
+
+    return () => observer.disconnect()
+  }, [])
+
+  const quickLinks = [
+    "Home",
+    "About Us", 
+    "Our Services",
+    "Contact Us"
+  ]
+
+  const services = [
+    "Termite Control",
+    "Rodent Control",
+    "Bed Bug Control",
+    "Mosquito Control"
+  ]
+
+  return (
+    <footer 
+      id="footer-section"
+      className="relative bg-white py-12 lg:py-16 overflow-hidden"
+    >
+      <div className="container mx-auto px-6">
+        {/* Main Footer Content - Black Rounded Container */}
+        <div className={`bg-[#0a0a0a] rounded-[3rem] lg:rounded-[4rem] overflow-hidden shadow-2xl transition-all duration-1000 ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        }`}>
+          
+          {/* Top Section - Company Info & CTA */}
+          <div className="px-8 lg:px-16 py-12 lg:py-16 border-b border-white/10">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              
+              {/* Left - Company Info */}
+              <div className={`text-white transition-all duration-1000 delay-200 ${
+                isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
+              }`}>
+                {/* Logo & Company Name */}
+                <div className="flex items-center gap-4 mb-6">
+                  <Image 
+                    src="/images/slmi.png" 
+                    alt="SLMI Pest Control Services" 
+                    width={50} 
+                    height={50} 
+                    className="h-12 w-auto"
+                  />
+                  <div>
+                    <h3 className="font-[family-name:var(--font-poppins)] text-2xl font-bold">
+                      SLMI Pest Control
+                    </h3>
+                    <p className="text-gray-400 text-sm">Protecting Your Space Since 2016</p>
+                  </div>
+                </div>
+
+                {/* Company Description */}
+                <p className="text-gray-300 text-lg leading-relaxed mb-8 max-w-lg">
+                  We provide reliable, eco-friendly pest management with transparent pricing and a customer-first approach.
+                </p>
+
+                {/* Rating */}
+                <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-1">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 fill-[#c83232] text-[#c83232]" />
+                    ))}
+                  </div>
+                  <span className="text-white font-semibold">4.9/5</span>
+                  <span className="text-gray-400 text-sm">(500+ reviews)</span>
+                </div>
+              </div>
+
+              {/* Right - Emergency Contact CTA */}
+              <div className={`transition-all duration-1000 delay-400 ${
+                isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'
+              }`}>
+                <div className="bg-gradient-to-br from-[#c83232] to-[#a02828] rounded-2xl p-8 text-center">
+                  <h3 className="text-white text-2xl font-bold mb-2">
+                    Contact Us Now!
+                  </h3>
+                  <p className="text-white/90 mb-6">
+                    Available 24/7 for pest control needs
+                  </p>
+                  
+                  {/* Phone Number - Large */}
+                  <div className="flex items-center justify-center gap-3 text-white mb-6">
+                    <Phone className="w-6 h-6" />
+                    <span className="text-2xl font-bold">9580574211</span>
+                  </div>
+
+                  {/* Email */}
+                  <div className="text-white/90 mb-6">
+                    <span className="text-base">sales@slmi.in</span>
+                  </div>
+
+                  {/* CTA Button */}
+                  <Button 
+                    size="lg"
+                    className="w-full bg-white text-[#c83232] hover:bg-gray-100 rounded-full h-12 text-base font-semibold"
+                  >
+                    Book Free Inspection
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* Bottom Section - Links & Copyright */}
+          <div className="px-8 lg:px-16 py-12">
+            <div className="grid md:grid-cols-3 gap-8 mb-8">
+              
+              {/* Quick Links */}
+              <div className={`transition-all duration-1000 delay-300 ${
+                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+              }`}>
+                <h4 className="text-white font-semibold text-lg mb-4">Quick Links</h4>
+                <ul className="space-y-2">
+                  {quickLinks.map((link) => (
+                    <li key={link}>
+                      <a 
+                        href="#" 
+                        className="text-gray-400 hover:text-white transition-colors duration-200 text-sm"
+                      >
+                        {link}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Our Services */}
+              <div className={`transition-all duration-1000 delay-400 ${
+                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+              }`}>
+                <h4 className="text-white font-semibold text-lg mb-4">Our Services</h4>
+                <ul className="space-y-2">
+                  {services.map((service) => (
+                    <li key={service}>
+                      <a 
+                        href="#" 
+                        className="text-gray-400 hover:text-white transition-colors duration-200 text-sm"
+                      >
+                        {service}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Visit Us */}
+              <div className={`transition-all duration-1000 delay-500 ${
+                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+              }`}>
+                <h4 className="text-white font-semibold text-lg mb-4">Visit Us:</h4>
+                <div className="space-y-3">
+                  <div className="flex items-start gap-3">
+                    <MapPin className="w-4 h-4 text-[#c83232] mt-1 flex-shrink-0" />
+                    <div>
+                      <p className="text-white font-medium text-sm">Lucknow, UP</p>
+                      <p className="text-gray-400 text-xs">Serving all areas in Lucknow & Noida</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-3">
+                    <Phone className="w-4 h-4 text-[#c83232] mt-1 flex-shrink-0" />
+                    <div>
+                      <p className="text-white font-medium text-sm">9580574211</p>
+                      <p className="text-gray-400 text-xs">24/7 Emergency Line</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-3">
+                    <Mail className="w-4 h-4 text-[#c83232] mt-1 flex-shrink-0" />
+                    <div>
+                      <p className="text-white font-medium text-sm">sales@slmi.in</p>
+                      <p className="text-gray-400 text-xs">Business Inquiries</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Copyright */}
+            <div className={`text-center pt-8 border-t border-white/10 transition-all duration-1000 delay-600 ${
+              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+            }`}>
+              <p className="text-gray-400 text-sm">
+                © 2024 SLMI Pest Control Services. All rights reserved.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  )
+}
