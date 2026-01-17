@@ -1,46 +1,145 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { Phone, ArrowRight, Star } from "lucide-react"
+import { Phone, ArrowRight, Star, Menu, X } from "lucide-react"
 import Image from "next/image"
+import { useState, useEffect } from "react"
 
 export function HeroSection() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isNavVisible, setIsNavVisible] = useState(true)
+  const [lastScrollY, setLastScrollY] = useState(0)
+
+  useEffect(() => {
+    const controlNavbar = () => {
+      if (typeof window !== 'undefined') {
+        if (window.scrollY > lastScrollY && window.scrollY > 100) {
+          // Scrolling down
+          setIsNavVisible(false)
+        } else {
+          // Scrolling up
+          setIsNavVisible(true)
+        }
+        setLastScrollY(window.scrollY)
+      }
+    }
+
+    if (typeof window !== 'undefined') {
+      window.addEventListener('scroll', controlNavbar)
+      return () => {
+        window.removeEventListener('scroll', controlNavbar)
+      }
+    }
+  }, [lastScrollY])
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen)
+  }
+
+  const navItems = ["About", "Services", "Blog", "Contact"]
+
   return (
     <section className="relative min-h-screen bg-white overflow-hidden">
       {/* Navigation */}
-      <nav className="relative z-50 bg-white">
-        <div className="container mx-auto px-6 py-6">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <Image 
-                src="/images/slmi.png" 
-                alt="SLMI Pest Control Services" 
-                width={40} 
-                height={40} 
-                className="h-10 w-auto"
-                priority
-              />
-            </div>
-            
-            <div className="hidden md:flex items-center gap-10">
-              {["About", "Services", "Blog", "Contact"].map((item) => (
-                <a
-                  key={item}
-                  href="#"
-                  className="text-sm font-medium text-gray-700 hover:text-[#c83232] transition-colors"
-                >
-                  {item}
-                </a>
-              ))}
+      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isNavVisible ? 'translate-y-0' : '-translate-y-full'
+      }`}>
+        <div className="backdrop-blur-md bg-white/80 border-b border-white/20 shadow-lg">
+          <div className="container mx-auto px-6 py-4">
+            <div className="flex items-center justify-between">
+              {/* Logo */}
+              <div className="flex items-center gap-2">
+                <Image 
+                  src="/images/slmi.png" 
+                  alt="SLMI Pest Control Services" 
+                  width={40} 
+                  height={40} 
+                  className="h-10 w-auto"
+                  priority
+                />
+              </div>
+              
+              {/* Desktop Navigation */}
+              <div className="hidden md:flex items-center gap-8">
+                {navItems.map((item) => (
+                  <a
+                    key={item}
+                    href="#"
+                    className="text-sm font-medium text-gray-700 hover:text-[#c83232] transition-colors duration-200"
+                  >
+                    {item}
+                  </a>
+                ))}
+              </div>
+
+              {/* Desktop Phone Number */}
+              <div className="hidden md:flex items-center gap-2 text-gray-900">
+                <Phone className="w-4 h-4 text-[#c83232]" />
+                <span className="text-base font-semibold">9580574211</span>
+              </div>
+
+              {/* Mobile Menu Button */}
+              <button
+                onClick={toggleMobileMenu}
+                className="md:hidden p-2 rounded-lg hover:bg-white/50 transition-colors duration-200"
+                aria-label="Toggle mobile menu"
+              >
+                {isMobileMenuOpen ? (
+                  <X className="w-6 h-6 text-gray-700" />
+                ) : (
+                  <Menu className="w-6 h-6 text-gray-700" />
+                )}
+              </button>
             </div>
 
-            <div className="hidden md:flex items-center gap-2 text-gray-900">
-              <Phone className="w-4 h-4 text-[#c83232]" />
-              <span className="text-base font-semibold">9580574211</span>
+            {/* Mobile Menu */}
+            <div className={`md:hidden transition-all duration-300 ease-in-out ${
+              isMobileMenuOpen 
+                ? 'max-h-80 opacity-100 mt-5' 
+                : 'max-h-0 opacity-0 overflow-hidden'
+            }`}>
+              <div className="backdrop-blur-sm bg-white/90 rounded-xl p-5 space-y-4 border border-white/30">
+                {/* Mobile Navigation Links */}
+                <div className="space-y-3">
+                  {navItems.map((item) => (
+                    <a
+                      key={item}
+                      href="#"
+                      className="block text-base font-medium text-gray-700 hover:text-[#c83232] transition-colors duration-200 py-2"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      {item}
+                    </a>
+                  ))}
+                </div>
+                
+                {/* Mobile Phone Number */}
+                <div className="pt-3 border-t border-gray-200/50">
+                  <div className="flex items-center gap-3 text-gray-900">
+                    <Phone className="w-5 h-5 text-[#c83232]" />
+                    <span className="text-base font-semibold">9580574211</span>
+                  </div>
+                </div>
+
+                {/* Mobile CTA Button */}
+                <div className="pt-3">
+                  <Button 
+                    size="default"
+                    className="w-full bg-[#c83232] hover:bg-[#a82828] text-white rounded-full h-11 text-base font-semibold"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Book Now
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </Button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </nav>
+
+      {/* Add padding top to account for fixed navbar */}
+      <div className="pt-20"></div>
 
       {/* Hero Content */}
       <div className="container mx-auto px-6 py-6">
