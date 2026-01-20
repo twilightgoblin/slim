@@ -6,24 +6,68 @@ import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import Link from "next/link"
 
+// Custom SVG Icons to match the exact design
+const TermiteIcon = () => (
+  <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none">
+    <path d="M12 2L8 6H16L12 2Z" fill="#c83232" />
+    <circle cx="12" cy="10" r="2" fill="#c83232" />
+    <path d="M10 14H14V18H10V14Z" fill="#c83232" />
+  </svg>
+)
+
+const CockroachIcon = () => (
+  <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none">
+    <path d="M12 4C8 4 5 7 5 11C5 15 8 18 12 18C16 18 19 15 19 11C19 7 16 4 12 4Z" fill="#c83232" stroke="#c83232" strokeWidth="1"/>
+    <circle cx="10" cy="9" r="1" fill="white"/>
+    <circle cx="14" cy="9" r="1" fill="white"/>
+  </svg>
+)
+
+const MosquitoIcon = () => (
+  <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none">
+    <path d="M12 6C10 6 8 8 8 10C8 12 10 14 12 14C14 14 16 12 16 10C16 8 14 6 12 6Z" fill="#c83232"/>
+    <path d="M12 14L10 18H14L12 14Z" fill="#c83232"/>
+    <path d="M8 10L4 8M16 10L20 8M8 10L4 12M16 10L20 12" stroke="#c83232" strokeWidth="2"/>
+  </svg>
+)
+
+const RodentIcon = () => (
+  <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none">
+    <path d="M8 12C8 8 10 6 12 6C14 6 16 8 16 12V16C16 18 14 20 12 20C10 20 8 18 8 16V12Z" fill="#c83232"/>
+    <circle cx="10" cy="10" r="1" fill="white"/>
+    <circle cx="14" cy="10" r="1" fill="white"/>
+    <path d="M12 6C12 4 10 2 8 2M12 6C12 4 14 2 16 2" stroke="#c83232" strokeWidth="2"/>
+  </svg>
+)
+
 const services = [
   {
     id: 1,
-    title: "Cockroach Control",
-    description: "Complete elimination of cockroaches with gel baiting and spray treatments for homes, kitchens, and restaurants.",
-    image: "/images/2-1024x256.jpg"
+    title: "Termite Control",
+    description: "Comprehensive termite elimination and prevention. Protect your property from costly damage.",
+    image: "/images/termites.jpg",
+    icon: TermiteIcon
   },
   {
     id: 2,
-    title: "Mosquito Control",
-    description: "Thermal fogging and larviciding treatments for societies and commercial campuses.",
-    image: "/images/3.jpg"
+    title: "Cockroach Control", 
+    description: "Effective cockroach treatment for homes and commercial spaces. Guaranteed results.",
+    image: "/images/Cockroach.jpg.webp",
+    icon: CockroachIcon
   },
   {
     id: 3,
-    title: "Bed Bug Treatment",
-    description: "Comprehensive bed bug elimination using heat treatment and targeted spraying for complete eradication.",
-    image: "/images/4.jpg"
+    title: "Mosquito Control",
+    description: "Eliminate disease-carrying mosquitoes. Safe treatments for families and pets.",
+    image: "/images/mosquito.jpg.webp",
+    icon: MosquitoIcon
+  },
+  {
+    id: 4,
+    title: "Rodent Control",
+    description: "Professional rodent elimination and prevention. Secure your premises.",
+    image: "/images/rodent.jpg",
+    icon: RodentIcon
   }
 ]
 
@@ -51,95 +95,87 @@ export function HeroServices() {
       id="hero-services"
       className="relative py-16 lg:py-24 bg-white overflow-hidden"
     >
-      {/* Minimal Background */}
-      <div className="absolute inset-0">
-        <div className="absolute top-1/4 -right-32 w-64 h-64 bg-[#c83232]/3 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 -left-32 w-64 h-64 bg-[#c83232]/3 rounded-full blur-3xl" />
-      </div>
-
       <div className="container mx-auto px-6 relative">
-        {/* Header - Centered with better mobile spacing */}
-        <div className="text-center mb-8 lg:mb-16">
+        {/* Header */}
+        <div className="text-center mb-12 lg:mb-16">
           <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <span className="text-[#c83232] text-sm font-semibold tracking-wide uppercase mb-3 block">
               Our Services
             </span>
-            <h2 className="font-[family-name:var(--font-poppins)] text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 mb-4 lg:mb-6 leading-tight px-4">
+            <h2 className="font-[family-name:var(--font-poppins)] text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 mb-4 lg:mb-6 leading-tight">
               Comprehensive Pest
               <br />
               <span className="text-[#c83232]">Protection Solutions</span>
             </h2>
-            <p className="text-sm sm:text-base lg:text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto px-4">
+            <p className="text-sm sm:text-base lg:text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto">
               Our expert team offers customized pest control services, designed to meet the unique challenges of your home or business.
             </p>
           </div>
         </div>
 
-        {/* Service Cards */}
-        <div className="space-y-6">
+        {/* Service Cards Grid - Using website red color scheme */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((service, index) => (
             <div
               key={service.id}
-              className={`group transition-all duration-700 ${
+              className={`group bg-white rounded-lg overflow-hidden border border-gray-200 hover:border-[#c83232] hover:shadow-lg transition-all duration-300 ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
               }`}
               style={{ transitionDelay: `${index * 150}ms` }}
             >
-              {/* Full Image Card with Better Mobile Layout */}
-              <div className="relative h-56 sm:h-64 md:h-56 lg:h-64 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 group-hover:-translate-y-1 cursor-pointer">
-                
-                {/* Full Background Image - Better positioning for mobile */}
+              {/* Service Image */}
+              <div className="relative h-40 overflow-hidden">
                 <Image
                   src={service.image}
                   alt={`${service.title} - Professional pest control service`}
                   fill
-                  className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                  className="object-cover"
                 />
-                
-                {/* Stronger overlay for better text readability on mobile */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/10 md:from-black/70 md:via-black/30 md:to-transparent group-hover:from-black/90 group-hover:via-black/60 group-hover:to-black/30 transition-all duration-500" />
-                
-                {/* Content Layout */}
-                <div className="absolute inset-0 z-10 flex flex-col">
-                  {/* Title - Always visible at bottom */}
-                  <div className="mt-auto p-4 sm:p-6">
-                    <span className="text-[#ff6b6b] text-xs sm:text-sm font-bold tracking-wide uppercase block mb-2 drop-shadow-lg">
-                      What we do:
-                    </span>
-                    <h3 className="font-[family-name:var(--font-poppins)] text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white drop-shadow-lg mb-3">
-                      {service.title}
-                    </h3>
-                    
-                    {/* Mobile Description - Always visible */}
-                    <div className="md:hidden">
-                      <p className="text-white/95 text-sm sm:text-base leading-relaxed drop-shadow-lg font-medium">
-                        {service.description}
-                      </p>
-                    </div>
+              </div>
 
-                    {/* Desktop Hover Description */}
-                    <div className="hidden md:block opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">
-                      <p className="text-white text-lg leading-relaxed drop-shadow-lg">
-                        {service.description}
-                      </p>
-                    </div>
+              {/* Card Content */}
+              <div className="p-6">
+                {/* Service Icon - Centered with light background */}
+                <div className="flex justify-center mb-4">
+                  <div className="w-12 h-12 bg-gray-50 rounded-lg flex items-center justify-center">
+                    <service.icon />
                   </div>
+                </div>
+
+                {/* Service Title */}
+                <h3 className="font-semibold text-lg text-gray-900 mb-3 text-center">
+                  {service.title}
+                </h3>
+
+                {/* Service Description */}
+                <p className="text-gray-600 text-sm leading-relaxed mb-6 text-center">
+                  {service.description}
+                </p>
+
+                {/* Learn More Link */}
+                <div className="text-center">
+                  <Link 
+                    href="/services"
+                    className="inline-flex items-center text-[#c83232] hover:text-[#a02828] font-medium text-sm transition-colors"
+                  >
+                    Learn More
+                    <ArrowRight className="w-4 h-4 ml-1" />
+                  </Link>
                 </div>
               </div>
             </div>
           ))}
         </div>
 
-        {/* All Services Link - Better Position */}
-        <div className={`text-center mt-8 lg:mt-12 transition-all duration-1000 delay-600 ${
+        {/* All Services Link */}
+        <div className={`text-center mt-12 lg:mt-16 transition-all duration-1000 delay-600 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}>
           <Link href="/services">
             <Button 
-              variant="outline"
-              className="border-[#c83232] text-[#c83232] hover:bg-[#c83232] hover:text-white font-semibold px-8 py-3 rounded-xl group cursor-pointer"
+              className="bg-[#c83232] hover:bg-[#a02828] text-white font-semibold px-8 py-3 rounded-xl group"
             >
-              Learn More About Us
+              View All Services
               <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
             </Button>
           </Link>
