@@ -90,7 +90,7 @@ export function ServiceAreasSection() {
             </div>
 
             {/* Noida Expansion Highlight - Better mobile layout */}
-            <div className={`bg-gradient-to-r from-[#c83232] to-[#a02828] rounded-2xl p-4 sm:p-6 text-white transition-all duration-1000 delay-900 ${
+            <div className={`bg-gradient-to-r from-[#b52f2f] via-[#c83232] to-[#b52f2f] rounded-2xl p-4 sm:p-6 text-white transition-all duration-1000 delay-900 ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
             }`}>
               <div className="flex items-center justify-center space-x-2 sm:space-x-3 mb-2">
@@ -98,7 +98,7 @@ export function ServiceAreasSection() {
                 <span className="text-base sm:text-lg font-bold">Now Expanding!</span>
               </div>
               <p className="text-base sm:text-lg font-semibold">
-                We are now also open for Pest Control in <span className="text-black">Noida!</span>
+                We are now also open for Pest Control in <span className="text-white">Noida!</span>
               </p>
               <p className="text-xs sm:text-sm opacity-90 mt-2">
                 Bringing our trusted pest control services to more cities

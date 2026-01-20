@@ -173,7 +173,7 @@ export function HeroServices() {
         }`}>
           <Link href="/services">
             <Button 
-              className="bg-[#c83232] hover:bg-[#a02828] text-white font-semibold px-8 py-3 rounded-xl group"
+              className="bg-[#c83232] hover:bg-[#a02828] text-white font-semibold px-8 py-3 rounded-xl group cursor-pointer"
             >
               View All Services
               <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
