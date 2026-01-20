@@ -57,7 +57,7 @@ export function HeroSection() {
     { name: "Service Areas", href: "#service-areas-section" },
     { name: "Testimonials", href: "#testimonials-section" },
     { name: "FAQS", href: "#faq-section" },
-    { name: "Contact Us", href: "#cta-section" }
+    { name: "Contact Us", href: "/contact" }
   ]
 
   return (

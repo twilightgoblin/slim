@@ -1,44 +1,17 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { Phone, ArrowRight, Star, Menu, X, CheckCircle, Users, Target, Award } from "lucide-react"
+import { Phone, ArrowRight, Star, Menu, X, CheckCircle, Users, Target, Award, Bug, Zap, Home, Bed, MousePointer, Hexagon } from "lucide-react"
 import Image from "next/image"
 import { useState, useEffect } from "react"
 import Link from "next/link"
 
 export function AboutUsPage() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const [isNavVisible, setIsNavVisible] = useState(true)
-  const [lastScrollY, setLastScrollY] = useState(0)
   const [isVisible, setIsVisible] = useState(false)
-
-  useEffect(() => {
-    const controlNavbar = () => {
-      if (typeof window !== 'undefined') {
-        if (window.scrollY > lastScrollY && window.scrollY > 100) {
-          setIsNavVisible(false)
-        } else {
-          setIsNavVisible(true)
-        }
-        setLastScrollY(window.scrollY)
-      }
-    }
-
-    if (typeof window !== 'undefined') {
-      window.addEventListener('scroll', controlNavbar)
-      return () => {
-        window.removeEventListener('scroll', controlNavbar)
-      }
-    }
-  }, [lastScrollY])
 
   useEffect(() => {
     setIsVisible(true)
   }, [])
-
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen)
-  }
 
   const scrollToSection = (href: string) => {
     if (href === "/") {
@@ -46,18 +19,7 @@ export function AboutUsPage() {
     } else if (href.startsWith("/#")) {
       window.location.href = href
     }
-    setIsMobileMenuOpen(false)
   }
-
-  const navItems = [
-    { name: "Home", href: "/" },
-    { name: "Our Services", href: "/#hero-services" },
-    { name: "About Us", href: "/about" },
-    { name: "Service Areas", href: "/#service-areas-section" },
-    { name: "Testimonials", href: "/#testimonials-section" },
-    { name: "FAQS", href: "/#faq-section" },
-    { name: "Contact Us", href: "/#cta-section" }
-  ]
 
   const stats = [
     { value: "5,000+", label: "Curated Products" },
@@ -66,12 +28,12 @@ export function AboutUsPage() {
   ]
 
   const services = [
-    "Cockroach Control",
-    "Mosquito Control", 
-    "Termite Control",
-    "Bed Bugs Control",
-    "Rodent Control",
-    "Ant Control"
+    { name: "Cockroach Control", icon: <Bug className="w-6 h-6" /> },
+    { name: "Mosquito Control", icon: <Zap className="w-6 h-6" /> }, 
+    { name: "Termite Control", icon: <Home className="w-6 h-6" /> },
+    { name: "Bed Bugs Control", icon: <Bed className="w-6 h-6" /> },
+    { name: "Rodent Control", icon: <MousePointer className="w-6 h-6" /> },
+    { name: "Ant Control", icon: <Hexagon className="w-6 h-6" /> }
   ]
 
   const whyChooseUs = [
@@ -99,134 +61,6 @@ export function AboutUsPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Navigation */}
-      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isNavVisible ? 'translate-y-0' : '-translate-y-full'
-      }`}>
-        <div className="backdrop-blur-md bg-white/80 border-b border-white/20 shadow-lg">
-          <div className="container mx-auto px-6 py-4">
-            <div className="flex items-center justify-between">
-              {/* Logo */}
-              <Link href="/" className="flex items-center gap-2">
-                <Image 
-                  src="/images/slmi.png" 
-                  alt="SLMI Pest Control Services" 
-                  width={40} 
-                  height={40} 
-                  className="h-10 w-auto"
-                  priority
-                />
-              </Link>
-              
-              {/* Desktop Navigation */}
-              <div className="hidden md:flex items-center gap-8">
-                {navItems.map((item) => (
-                  item.href.startsWith("/") ? (
-                    <Link
-                      key={item.name}
-                      href={item.href}
-                      className={`text-sm font-medium transition-colors duration-200 ${
-                        item.href === "/about" 
-                          ? "text-[#c83232]" 
-                          : "text-gray-700 hover:text-[#c83232]"
-                      }`}
-                    >
-                      {item.name}
-                    </Link>
-                  ) : (
-                    <button
-                      key={item.name}
-                      onClick={() => scrollToSection(item.href)}
-                      className="text-sm font-medium text-gray-700 hover:text-[#c83232] transition-colors duration-200 cursor-pointer"
-                    >
-                      {item.name}
-                    </button>
-                  )
-                ))}
-              </div>
-
-              {/* Desktop Phone Number */}
-              <div className="hidden md:flex items-center gap-2 text-gray-900 cursor-pointer hover:text-[#c83232] transition-colors duration-200">
-                <Phone className="w-4 h-4 text-[#c83232]" />
-                <span className="text-base font-semibold">9580574211</span>
-              </div>
-
-              {/* Mobile Menu Button */}
-              <button
-                onClick={toggleMobileMenu}
-                className="md:hidden p-2 rounded-lg hover:bg-white/50 transition-colors duration-200 cursor-pointer"
-                aria-label="Toggle mobile menu"
-              >
-                {isMobileMenuOpen ? (
-                  <X className="w-6 h-6 text-gray-700" />
-                ) : (
-                  <Menu className="w-6 h-6 text-gray-700" />
-                )}
-              </button>
-            </div>
-
-            {/* Mobile Menu */}
-            <div className={`md:hidden transition-all duration-300 ease-in-out ${
-              isMobileMenuOpen 
-                ? 'max-h-80 opacity-100 mt-5' 
-                : 'max-h-0 opacity-0 overflow-hidden'
-            }`}>
-              <div className="backdrop-blur-sm bg-white/90 rounded-xl p-5 space-y-4 border border-white/30">
-                <div className="space-y-3">
-                  {navItems.map((item) => (
-                    item.href.startsWith("/") ? (
-                      <Link
-                        key={item.name}
-                        href={item.href}
-                        className={`block w-full text-left text-base font-medium transition-colors duration-200 py-2 ${
-                          item.href === "/about" 
-                            ? "text-[#c83232]" 
-                            : "text-gray-700 hover:text-[#c83232]"
-                        }`}
-                        onClick={() => setIsMobileMenuOpen(false)}
-                      >
-                        {item.name}
-                      </Link>
-                    ) : (
-                      <button
-                        key={item.name}
-                        onClick={() => scrollToSection(item.href)}
-                        className="block w-full text-left text-base font-medium text-gray-700 hover:text-[#c83232] transition-colors duration-200 py-2 cursor-pointer"
-                      >
-                        {item.name}
-                      </button>
-                    )
-                  ))}
-                </div>
-                
-                <div className="pt-3 border-t border-gray-200/50">
-                  <div className="flex items-center gap-3 text-gray-900 cursor-pointer hover:text-[#c83232] transition-colors duration-200">
-                    <Phone className="w-5 h-5 text-[#c83232]" />
-                    <span className="text-base font-semibold">9580574211</span>
-                  </div>
-                </div>
-
-                <div className="pt-3">
-                  <Button 
-                    size="default"
-                    className="w-full bg-[#c83232] hover:bg-[#a82828] text-white rounded-full h-11 text-base font-semibold"
-                    onClick={() => {
-                      scrollToSection("/#cta-section")
-                      setIsMobileMenuOpen(false)
-                    }}
-                  >
-                    Book Now
-                    <ArrowRight className="w-4 h-4 ml-2" />
-                  </Button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </nav>
-
-      {/* Add padding top to account for fixed navbar */}
-      <div className="pt-20"></div>
 
       {/* Hero Section */}
       <section className="relative py-16 lg:py-24 bg-white overflow-hidden">
@@ -253,13 +87,24 @@ export function AboutUsPage() {
                 SLMI Pest Control has proudly expanded its services to cater to the pest control needs of customers across India. With a commitment to excellence and a focus on customer satisfaction, we have established ourselves as a trusted name in the pest control industry nationwide.
               </p>
 
-              <Button 
-                className="bg-[#c83232] hover:bg-[#a82828] text-white rounded-full px-10 h-14 text-base font-semibold group cursor-pointer"
-                onClick={() => scrollToSection("/#cta-section")}
-              >
-                Contact Us Today
-                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-              </Button>
+              <div className="flex flex-col sm:flex-row gap-4 items-start">
+                <Button 
+                  className="bg-[#c83232] hover:bg-[#a82828] text-white rounded-full px-10 h-14 text-base font-semibold group cursor-pointer"
+                  onClick={() => scrollToSection("/#cta-section")}
+                >
+                  Contact Us Today
+                  <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                </Button>
+                
+                <Button 
+                  variant="outline"
+                  className="border-2 border-[#c83232] text-[#c83232] hover:bg-[#c83232] hover:text-white rounded-full px-8 h-14 text-base font-semibold group cursor-pointer"
+                  onClick={() => window.open('tel:9580574211', '_self')}
+                >
+                  <Phone className="w-5 h-5 mr-2" />
+                  Call Now
+                </Button>
+              </div>
             </div>
 
             {/* Right Image */}
@@ -350,21 +195,26 @@ export function AboutUsPage() {
             <h2 className="font-[family-name:var(--font-poppins)] text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
               Our <span className="text-[#c83232]">Services</span>
             </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-12">
               SLMI Pest Control offers a <span className="text-[#c83232] font-semibold">wide range</span> of pest management solutions to address various pest infestations, including:
             </p>
           </div>
           
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            {services.map((service, index) => (
-              <div key={index} className="bg-gray-50 p-6 rounded-xl text-center hover:bg-[#c83232]/5 hover:shadow-lg transition-all duration-300 border border-transparent hover:border-[#c83232]/20">
-                <h3 className="text-lg font-semibold text-gray-900 hover:text-[#c83232] transition-colors duration-300">{service}</h3>
-              </div>
-            ))}
-          </div>
-          
-          <div className="text-center mt-8">
-            <p className="text-lg text-gray-600 font-medium">and <span className="text-[#c83232] font-semibold">more</span>.</p>
+          <div className="max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {services.map((service, index) => (
+                <div key={index} className="flex items-center gap-4 p-6 bg-white rounded-2xl border border-gray-200 hover:border-[#c83232]/30 hover:shadow-lg transition-all duration-300 group">
+                  <div className="w-12 h-12 bg-[#c83232]/10 rounded-xl flex items-center justify-center text-[#c83232] group-hover:bg-[#c83232] group-hover:text-white transition-all duration-300 flex-shrink-0">
+                    {service.icon}
+                  </div>
+                  <h3 className="text-lg font-semibold text-gray-900 group-hover:text-[#c83232] transition-colors duration-300">{service.name}</h3>
+                </div>
+              ))}
+            </div>
+            
+            <div className="text-center mt-12">
+              <p className="text-lg text-gray-600 font-medium">and <span className="text-[#c83232] font-semibold">more</span>.</p>
+            </div>
           </div>
         </div>
       </section>
@@ -420,10 +270,9 @@ export function AboutUsPage() {
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
               
-              <div className="flex items-center gap-3 text-white hover:text-gray-200 transition-colors cursor-pointer">
-                <Phone className="w-5 h-5" />
-                <span className="text-lg font-semibold">9580574211</span>
-              </div>
+           
+            
+            
             </div>
           </div>
         </div>

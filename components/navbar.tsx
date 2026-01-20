@@ -42,7 +42,7 @@ export function Navbar() {
     { name: "Service Areas", href: "/#service-areas-section" },
     { name: "Testimonials", href: "/#testimonials-section" },
     { name: "FAQS", href: "/faq" },
-    { name: "Contact Us", href: "/#cta-section" }
+    { name: "Contact Us", href: "/contact" }
   ]
 
   return (
