@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import Link from "next/link"
 
 const faqs = [
   {
@@ -70,10 +71,13 @@ export function FaqSection() {
             <h2 className="font-[family-name:var(--font-poppins)] text-4xl lg:text-5xl font-bold text-slate-900 mb-8 leading-tight">
               Everything You Need to Know
             </h2>
-            <button className="text-slate-900 font-medium hover:text-[#c83232] transition-colors duration-300 flex items-center gap-2 group cursor-pointer">
+            <Link 
+              href="/faq"
+              className="text-slate-900 font-medium hover:text-[#c83232] transition-colors duration-300 flex items-center gap-2 group cursor-pointer"
+            >
               All questions 
               <span className="transform group-hover:translate-x-1 transition-transform duration-300">→</span>
-            </button>
+            </Link>
           </div>
 
           {/* Right Side - FAQ Items */}

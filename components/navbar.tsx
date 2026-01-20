@@ -41,7 +41,7 @@ export function Navbar() {
     { name: "About Us", href: "/about" },
     { name: "Service Areas", href: "/#service-areas-section" },
     { name: "Testimonials", href: "/#testimonials-section" },
-    { name: "FAQS", href: "/#faq-section" },
+    { name: "FAQS", href: "/faq" },
     { name: "Contact Us", href: "/#cta-section" }
   ]
 
