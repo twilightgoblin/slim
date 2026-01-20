@@ -80,7 +80,7 @@ export function Navbar() {
             {/* Desktop Phone Number */}
             <div className="hidden md:flex items-center gap-2 text-gray-900 cursor-pointer hover:text-[#c83232] transition-colors duration-200">
               <Phone className="w-4 h-4 text-[#c83232]" />
-              <span className="text-base font-semibold">9580574211</span>
+              <span className="text-base font-semibold">(+91)-95805-74211</span>
             </div>
 
             {/* Mobile Menu Button */}
@@ -120,7 +120,7 @@ export function Navbar() {
               <div className="pt-3 border-t border-gray-200/50">
                 <div className="flex items-center gap-3 text-gray-900 cursor-pointer hover:text-[#c83232] transition-colors duration-200">
                   <Phone className="w-5 h-5 text-[#c83232]" />
-                  <span className="text-base font-semibold">9580574211</span>
+                  <span className="text-base font-semibold">(+91)-95805-74211</span>
                 </div>
               </div>
 
