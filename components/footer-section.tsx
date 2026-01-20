@@ -125,6 +125,7 @@ export function FooterSection() {
                   <Button 
                     size="lg"
                     className="w-full bg-white text-[#c83232] hover:bg-gray-100 rounded-full h-12 text-base font-semibold cursor-pointer"
+                    onClick={() => window.location.href = "/contact"}
                   >
                     Book Free Inspection
                     <ArrowRight className="w-4 h-4 ml-2" />

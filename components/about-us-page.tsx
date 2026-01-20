@@ -90,7 +90,7 @@ export function AboutUsPage() {
               <div className="flex flex-col sm:flex-row gap-4 items-start">
                 <Button 
                   className="bg-[#c83232] hover:bg-[#a82828] text-white rounded-full px-10 h-14 text-base font-semibold group cursor-pointer"
-                  onClick={() => scrollToSection("/#cta-section")}
+                  onClick={() => window.location.href = "/contact"}
                 >
                   Contact Us Today
                   <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -264,7 +264,7 @@ export function AboutUsPage() {
               <Button 
                 size="lg"
                 className="bg-[#c83232] hover:bg-[#a82828] text-white rounded-full px-10 h-14 text-base font-semibold group cursor-pointer"
-                onClick={() => scrollToSection("/#cta-section")}
+                onClick={() => window.location.href = "/contact"}
               >
                 Schedule Consultation
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />

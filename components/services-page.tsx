@@ -139,7 +139,10 @@ export function ServicesPage() {
               <p className="text-base sm:text-lg text-gray-600 leading-relaxed mb-8">
                 At SLMI Pest Control, we specialize in anti termite reticulation system and innovative pest management solutions to ensure your home or business remains pest-free. Our commitment to excellence, eco-friendly practices, and cutting-edge technology make us the go-to choice for termite and pest control in Lucknow and beyond.
               </p>
-              <Button className="bg-[#c83232] hover:bg-[#a02828] text-white px-6 sm:px-8 py-3 rounded-xl font-semibold group w-full sm:w-auto">
+              <Button 
+                className="bg-[#c83232] hover:bg-[#a02828] text-white px-6 sm:px-8 py-3 rounded-xl font-semibold group w-full sm:w-auto"
+                onClick={() => window.location.href = "/contact"}
+              >
                 Get Free Inspection
                 <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
               </Button>

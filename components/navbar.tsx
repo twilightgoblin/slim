@@ -134,7 +134,10 @@ export function Navbar() {
                 <Button 
                   size="default"
                   className="w-full bg-[#c83232] hover:bg-[#a82828] text-white rounded-full h-11 text-base font-semibold"
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  onClick={() => {
+                    window.location.href = "/contact"
+                    setIsMobileMenuOpen(false)
+                  }}
                 >
                   Book Now
                   <ArrowRight className="w-4 h-4 ml-2" />
