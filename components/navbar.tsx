@@ -1,7 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { Phone, ArrowRight, Menu, X } from "lucide-react"
+import { ArrowRight, Menu, X } from "lucide-react"
 import Image from "next/image"
 import { useState, useEffect } from "react"
 import Link from "next/link"
@@ -49,28 +49,28 @@ export function Navbar() {
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       isNavVisible ? 'translate-y-0' : '-translate-y-full'
     }`}>
-      <div className="backdrop-blur-md bg-white/90 border-b border-white/20 shadow-lg">
-        <div className="container mx-auto px-6 py-4">
+      <div className="backdrop-blur-md bg-white/95 border-b border-gray-200/50 shadow-sm">
+        <div className="container mx-auto px-4 sm:px-6 py-3 sm:py-4">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-2">
+            <Link href="/" className="flex items-center gap-2 flex-shrink-0">
               <Image 
                 src="/images/slmi.png" 
                 alt="SLMI Pest Control Services" 
                 width={40} 
                 height={40} 
-                className="h-10 w-auto"
+                className="h-8 sm:h-10 w-auto"
                 priority
               />
             </Link>
             
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center gap-8">
+            <div className="hidden lg:flex items-center gap-6 xl:gap-8">
               {navItems.map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="text-sm font-medium text-gray-700 hover:text-[#c83232] transition-colors duration-200"
+                  className="text-sm font-medium text-gray-700 hover:text-[#c83232] transition-colors duration-200 whitespace-nowrap"
                 >
                   {item.name}
                 </Link>
@@ -80,7 +80,7 @@ export function Navbar() {
             {/* Desktop Phone Number */}
             <a 
               href="tel:+919580574211"
-              className="hidden md:flex flex-col items-center bg-[#c83232] text-white hover:text-[#0a0a0a] px-3 py-2 rounded-lg cursor-pointer transition-colors duration-200"
+              className="hidden lg:flex flex-col items-center bg-[#c83232] text-white hover:bg-[#a82828] px-3 py-2 rounded-lg cursor-pointer transition-colors duration-200 flex-shrink-0"
             >
               <span className="text-xs font-medium">Call now</span>
               <span className="text-sm font-semibold">(+91)-95805-74211</span>
@@ -89,7 +89,7 @@ export function Navbar() {
             {/* Mobile Menu Button */}
             <button
               onClick={toggleMobileMenu}
-              className="md:hidden p-2 rounded-lg hover:bg-white/50 transition-colors duration-200"
+              className="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200 flex-shrink-0"
               aria-label="Toggle mobile menu"
             >
               {isMobileMenuOpen ? (
@@ -99,20 +99,22 @@ export function Navbar() {
               )}
             </button>
           </div>
+        </div>
 
-          {/* Mobile Menu */}
-          <div className={`md:hidden transition-all duration-300 ease-in-out ${
-            isMobileMenuOpen 
-              ? 'max-h-80 opacity-100 mt-5' 
-              : 'max-h-0 opacity-0 overflow-hidden'
-          }`}>
-            <div className="backdrop-blur-sm bg-white/90 rounded-xl p-5 space-y-4 border border-white/30">
-              <div className="space-y-3">
+        {/* Mobile Menu */}
+        <div className={`lg:hidden transition-all duration-300 ease-in-out ${
+          isMobileMenuOpen 
+            ? 'max-h-screen opacity-100' 
+            : 'max-h-0 opacity-0 overflow-hidden'
+        }`}>
+          <div className="bg-white border-t border-gray-200">
+            <div className="container mx-auto px-4 sm:px-6 py-4">
+              <div className="space-y-1">
                 {navItems.map((item) => (
                   <Link
                     key={item.name}
                     href={item.href}
-                    className="block w-full text-left text-base font-medium text-gray-700 hover:text-[#c83232] transition-colors duration-200 py-2"
+                    className="block w-full text-left text-base font-medium text-gray-700 hover:text-[#c83232] hover:bg-gray-50 transition-colors duration-200 py-3 px-3 rounded-lg"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {item.name}
@@ -120,20 +122,17 @@ export function Navbar() {
                 ))}
               </div>
               
-              <div className="pt-3 border-t border-gray-200/50">
+              <div className="mt-6 space-y-3">
                 <a 
                   href="tel:+919580574211"
-                  className="flex flex-col items-center bg-[#c83232] text-white hover:text-[#0a0a0a] px-4 py-3 rounded-lg cursor-pointer w-full transition-colors duration-200"
+                  className="flex items-center justify-center bg-gray-100 text-gray-800 hover:bg-gray-200 px-4 py-3 rounded-lg cursor-pointer w-full transition-colors duration-200"
                 >
-                  <span className="text-xs font-medium">Call now</span>
                   <span className="text-sm font-semibold">(+91)-95805-74211</span>
                 </a>
-              </div>
-
-              <div className="pt-3">
+                
                 <Button 
                   size="default"
-                  className="w-full bg-[#c83232] hover:bg-[#a82828] text-white rounded-full h-11 text-base font-semibold"
+                  className="w-full bg-[#c83232] hover:bg-[#a82828] text-white rounded-lg h-12 text-base font-semibold"
                   onClick={() => {
                     window.location.href = "/contact"
                     setIsMobileMenuOpen(false)
