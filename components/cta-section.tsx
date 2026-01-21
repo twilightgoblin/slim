@@ -71,7 +71,7 @@ export function CtaSection() {
               className="bg-[#c83232] hover:bg-[#a02828] text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg transition-colors duration-300 whitespace-nowrap flex items-center justify-center cursor-pointer gap-2"
             >
               <Phone className="w-5 h-5" />
-              9580574211
+              (+91)-95805-74211
             </a>
             <a 
               href="mailto:sales@slmi.in"

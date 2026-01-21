@@ -6,38 +6,83 @@ import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import Link from "next/link"
 
-// Custom SVG Icons to match the exact design
+// Enhanced Animal Icons with round backgrounds and visible animal features
 const TermiteIcon = () => (
-  <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none">
-    <path d="M12 2L8 6H16L12 2Z" fill="#c83232" />
-    <circle cx="12" cy="10" r="2" fill="#c83232" />
-    <path d="M10 14H14V18H10V14Z" fill="#c83232" />
-  </svg>
+  <div className="w-12 h-12 bg-gradient-to-br from-[#c83232] to-[#a02828] rounded-full flex items-center justify-center shadow-lg">
+    <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none">
+      {/* Termite body with segments */}
+      <ellipse cx="12" cy="8" rx="2" ry="3" fill="white" />
+      <ellipse cx="12" cy="12" rx="1.5" ry="2" fill="white" />
+      <ellipse cx="12" cy="16" rx="1" ry="1.5" fill="white" />
+      {/* Antennae */}
+      <path d="M10 6C9 5 8 4 7 4M14 6C15 5 16 4 17 4" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
+      {/* Legs */}
+      <path d="M10 10L8 12M14 10L16 12M10 14L8 16M14 14L16 16" stroke="white" strokeWidth="1" strokeLinecap="round"/>
+    </svg>
+  </div>
 )
 
 const CockroachIcon = () => (
-  <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none">
-    <path d="M12 4C8 4 5 7 5 11C5 15 8 18 12 18C16 18 19 15 19 11C19 7 16 4 12 4Z" fill="#c83232" stroke="#c83232" strokeWidth="1"/>
-    <circle cx="10" cy="9" r="1" fill="white"/>
-    <circle cx="14" cy="9" r="1" fill="white"/>
-  </svg>
+  <div className="w-12 h-12 bg-gradient-to-br from-[#c83232] to-[#a02828] rounded-full flex items-center justify-center shadow-lg">
+    <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none">
+      {/* Cockroach oval body */}
+      <ellipse cx="12" cy="12" rx="4" ry="6" fill="white" />
+      {/* Head */}
+      <ellipse cx="12" cy="7" rx="2.5" ry="2" fill="white" />
+      {/* Eyes */}
+      <circle cx="10.5" cy="6.5" r="0.8" fill="#c83232"/>
+      <circle cx="13.5" cy="6.5" r="0.8" fill="#c83232"/>
+      {/* Antennae */}
+      <path d="M10 5C9 4 8 3 7 3M14 5C15 4 16 3 17 3" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
+      {/* Wing lines */}
+      <path d="M9 10V16M15 10V16M12 9V17" stroke="#c83232" strokeWidth="0.5"/>
+    </svg>
+  </div>
 )
 
 const MosquitoIcon = () => (
-  <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none">
-    <path d="M12 6C10 6 8 8 8 10C8 12 10 14 12 14C14 14 16 12 16 10C16 8 14 6 12 6Z" fill="#c83232"/>
-    <path d="M12 14L10 18H14L12 14Z" fill="#c83232"/>
-    <path d="M8 10L4 8M16 10L20 8M8 10L4 12M16 10L20 12" stroke="#c83232" strokeWidth="2"/>
-  </svg>
+  <div className="w-12 h-12 bg-gradient-to-br from-[#c83232] to-[#a02828] rounded-full flex items-center justify-center shadow-lg">
+    <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none">
+      {/* Mosquito body */}
+      <ellipse cx="12" cy="12" rx="1" ry="4" fill="white" />
+      {/* Head */}
+      <circle cx="12" cy="8" r="1.5" fill="white" />
+      {/* Long proboscis */}
+      <path d="M12 6.5L12 4" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
+      {/* Wings */}
+      <ellipse cx="10" cy="10" rx="2" ry="1" fill="white" opacity="0.8" transform="rotate(-20 10 10)"/>
+      <ellipse cx="14" cy="10" rx="2" ry="1" fill="white" opacity="0.8" transform="rotate(20 14 10)"/>
+      {/* Legs */}
+      <path d="M10.5 14L8 16M13.5 14L16 16M10.5 11L8 13M13.5 11L16 13" stroke="white" strokeWidth="1" strokeLinecap="round"/>
+      {/* Antennae */}
+      <path d="M11 7L10 5M13 7L14 5" stroke="white" strokeWidth="1" strokeLinecap="round"/>
+    </svg>
+  </div>
 )
 
 const RodentIcon = () => (
-  <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none">
-    <path d="M8 12C8 8 10 6 12 6C14 6 16 8 16 12V16C16 18 14 20 12 20C10 20 8 18 8 16V12Z" fill="#c83232"/>
-    <circle cx="10" cy="10" r="1" fill="white"/>
-    <circle cx="14" cy="10" r="1" fill="white"/>
-    <path d="M12 6C12 4 10 2 8 2M12 6C12 4 14 2 16 2" stroke="#c83232" strokeWidth="2"/>
-  </svg>
+  <div className="w-12 h-12 bg-gradient-to-br from-[#c83232] to-[#a02828] rounded-full flex items-center justify-center shadow-lg">
+    <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none">
+      {/* Mouse body */}
+      <ellipse cx="12" cy="13" rx="3" ry="4" fill="white" />
+      {/* Head */}
+      <ellipse cx="12" cy="8" rx="2.5" ry="2" fill="white" />
+      {/* Ears */}
+      <circle cx="10" cy="6" r="1.2" fill="white" />
+      <circle cx="14" cy="6" r="1.2" fill="white" />
+      <circle cx="10" cy="6" r="0.6" fill="#c83232" />
+      <circle cx="14" cy="6" r="0.6" fill="#c83232" />
+      {/* Eyes */}
+      <circle cx="10.5" cy="7.5" r="0.5" fill="#c83232"/>
+      <circle cx="13.5" cy="7.5" r="0.5" fill="#c83232"/>
+      {/* Nose */}
+      <circle cx="12" cy="8.5" r="0.3" fill="#c83232"/>
+      {/* Tail */}
+      <path d="M12 17C13 18 15 19 17 18" stroke="white" strokeWidth="1.5" strokeLinecap="round" fill="none"/>
+      {/* Whiskers */}
+      <path d="M9 8L7 7.5M15 8L17 7.5M9 9L7 9M15 9L17 9" stroke="white" strokeWidth="0.8" strokeLinecap="round"/>
+    </svg>
+  </div>
 )
 
 const services = [
@@ -118,13 +163,13 @@ export function HeroServices() {
           {services.map((service, index) => (
             <div
               key={service.id}
-              className={`group bg-white rounded-lg overflow-hidden border border-gray-200 hover:border-[#c83232] hover:shadow-lg transition-all duration-300 ${
+              className={`group bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md border border-gray-100 hover:border-gray-200 transition-all duration-300 ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
               }`}
               style={{ transitionDelay: `${index * 150}ms` }}
             >
               {/* Service Image */}
-              <div className="relative h-40 overflow-hidden">
+              <div className="relative h-48 overflow-hidden">
                 <Image
                   src={service.image}
                   alt={`${service.title} - Professional pest control service`}
@@ -135,31 +180,29 @@ export function HeroServices() {
 
               {/* Card Content */}
               <div className="p-6">
-                {/* Service Icon - Centered with light background */}
-                <div className="flex justify-center mb-4">
-                  <div className="w-12 h-12 bg-gray-50 rounded-lg flex items-center justify-center">
-                    <service.icon />
-                  </div>
+                {/* Service Icon - Left aligned with proper spacing */}
+                <div className="flex justify-start mb-6">
+                  <service.icon />
                 </div>
 
                 {/* Service Title */}
-                <h3 className="font-semibold text-lg text-gray-900 mb-3 text-center">
+                <h3 className="font-semibold text-lg text-gray-900 mb-4 text-left">
                   {service.title}
                 </h3>
 
                 {/* Service Description */}
-                <p className="text-gray-600 text-sm leading-relaxed mb-6 text-center">
+                <p className="text-gray-600 text-sm leading-relaxed mb-6 text-left">
                   {service.description}
                 </p>
 
                 {/* Learn More Link */}
-                <div className="text-center">
+                <div className="text-left">
                   <Link 
                     href="/services"
-                    className="inline-flex items-center text-[#c83232] hover:text-[#a02828] font-medium text-sm transition-colors"
+                    className="inline-flex items-center text-[#c83232] hover:text-[#a02828] font-medium text-sm transition-colors group"
                   >
                     Learn More
-                    <ArrowRight className="w-4 h-4 ml-1" />
+                    <ArrowRight className="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" />
                   </Link>
                 </div>
               </div>
