@@ -112,7 +112,7 @@ export function FooterSection() {
                   {/* Phone Number - Large */}
                   <div className="flex items-center justify-center gap-3 text-white mb-6 cursor-pointer hover:text-gray-200 transition-colors duration-200">
                     <Phone className="w-5 h-5" />
-                    <span className="text-base font-bold">9580574211</span>
+                    <span className="text-base font-bold">(+91)-95805-74211</span>
                   </div>
 
                   {/* Email */}

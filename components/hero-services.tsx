@@ -110,7 +110,7 @@ const services = [
   {
     id: 4,
     title: "Rodent Control",
-    description: "Professional rodent elimination and prevention. Secure your premises.",
+    description: "Professional rodent elimination and prevention. Secure your premises with care.",
     image: "/images/rodent.jpg",
     icon: RodentIcon
   }
