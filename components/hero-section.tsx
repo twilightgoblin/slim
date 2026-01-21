@@ -202,9 +202,9 @@ export function HeroSection() {
       {/* Hero Content */}
       <div className="container mx-auto px-4 sm:px-6 py-6">
         {/* Black Rounded Container */}
-        <div className="bg-[#0a0a0a] rounded-[4rem] lg:rounded-[4rem] overflow-hidden shadow-2xl h-[82vh] lg:h-[85vh] min-h-[600px] sm:min-h-[650px]">
+        <div className="bg-[#0a0a0a] rounded-[4rem] lg:rounded-[4rem] overflow-hidden shadow-2xl min-h-[85vh] lg:h-[85vh] h-auto">
           {/* Mobile Layout */}
-          <div className="lg:hidden flex flex-col h-full">
+          <div className="lg:hidden flex flex-col min-h-[85vh]">
             {/* Image Section */}
             <div className="relative p-4 sm:p-6 pt-6 sm:pt-8 flex-shrink-0">
               <div className="relative w-full aspect-[4/3] sm:aspect-[4/3] rounded-[1.5rem] sm:rounded-[2rem] overflow-hidden">
@@ -219,7 +219,7 @@ export function HeroSection() {
             </div>
 
             {/* Content Section */}
-            <div className="text-white px-4 sm:px-8 pb-6 sm:pb-8 flex flex-col flex-1">
+            <div className="text-white px-4 sm:px-8 pb-8 sm:pb-12 flex flex-col flex-1">
               {/* Rating Badge */}
               <div className="flex items-center gap-2 mb-4 sm:mb-6">
                 <div className="flex items-center gap-1">
@@ -256,13 +256,13 @@ export function HeroSection() {
                 </Button>
               </div>
 
-              {/* Phone Number - Elegant Style */}
+              {/* Phone Number - Minimal Style */}
               <a 
                 href="tel:+919580574211"
-                className="flex items-center justify-center gap-2 text-white/80 hover:text-white transition-colors cursor-pointer py-1"
+                className="flex items-center justify-center gap-2 text-white/70 hover:text-white transition-colors cursor-pointer py-2"
               >
-                <Phone className="w-3 h-3 sm:w-4 sm:h-4" />
-                <span className="text-sm sm:text-base font-medium">(+91)-95805-74211</span>
+                <Phone className="w-4 h-4" />
+                <span className="text-sm font-medium">(+91)-95805-74211</span>
               </a>
             </div>
           </div>
@@ -356,7 +356,7 @@ export function HeroSection() {
         <div className="flex animate-marquee whitespace-nowrap">
           {[...Array(3)].map((_, i) => (
             <div key={i} className="flex items-center">
-              {["Termite Control", "Rodent Control", "Cockroach Control", "Bed Bug Control", "Mosquito Control"].map((service, index) => (
+              {["Termite Control", "Rodent Control", "Cockroach Control", "Bed Bug Control", "Mosquito Control"].map((service) => (
                 <span 
                   key={`${service}-${i}`}
                   className="text-xl font-bold text-gray-400 hover:text-[#c83232] transition-colors duration-300 cursor-pointer mx-5"
