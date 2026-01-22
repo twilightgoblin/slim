@@ -215,7 +215,7 @@ export function FooterSection() {
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
             }`}>
               <p className="text-gray-400 text-xs sm:text-sm">
-                © 2024 SLMI Pest Control Services. All rights reserved.
+                © 2026 SLMI Pest Control Services. All rights reserved.
               </p>
             </div>
           </div>
