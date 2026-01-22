@@ -200,26 +200,26 @@ export function HeroSection() {
       <div className="pt-20"></div>
 
       {/* Hero Content */}
-      <div className="container mx-auto px-4 sm:px-6 py-6">
-        {/* Black Rounded Container */}
-        <div className="bg-[#0a0a0a] rounded-[4rem] lg:rounded-[4rem] overflow-hidden shadow-2xl h-[82vh] lg:h-[85vh] min-h-[600px] sm:min-h-[650px]">
+      <div className="container mx-auto px-4 sm:px-6 py-6 lg:py-6">
+        {/* Black Rounded Container - Adjusted for mobile positioning */}
+        <div className="bg-[#0a0a0a] rounded-[4rem] lg:rounded-[4rem] overflow-hidden shadow-2xl h-[84vh] lg:h-[85vh] min-h-[620px] sm:min-h-[650px] -mt-2 lg:mt-0">
           {/* Mobile Layout */}
           <div className="lg:hidden flex flex-col h-full">
-            {/* Image Section */}
-            <div className="relative p-4 sm:p-6 pt-6 sm:pt-8 flex-shrink-0">
-              <div className="relative w-full aspect-[4/3] sm:aspect-[4/3] rounded-[1.5rem] sm:rounded-[2rem] overflow-hidden">
+            {/* Image Section - Improved positioning */}
+            <div className="relative p-3 sm:p-4 pt-4 sm:pt-5 flex-shrink-0">
+              <div className="relative w-full aspect-[4/3] sm:aspect-[5/4] rounded-[1.2rem] sm:rounded-[1.5rem] overflow-hidden shadow-lg">
                 <Image
                   src="/professional-pest-control-technician-in-white-prot.jpg"
                   alt="Professional pest control technician in protective gear treating a property"
                   fill
-                  className="object-cover"
+                  className="object-cover object-center"
                   priority
                 />
               </div>
             </div>
 
-            {/* Content Section */}
-            <div className="text-white px-4 sm:px-8 pb-6 sm:pb-8 flex flex-col flex-1">
+            {/* Content Section - Optimized spacing */}
+            <div className="text-white px-4 sm:px-6 pb-4 sm:pb-6 flex flex-col flex-1 justify-center">
               {/* Rating Badge */}
               <div className="flex items-center gap-2 mb-4 sm:mb-6">
                 <div className="flex items-center gap-1">
