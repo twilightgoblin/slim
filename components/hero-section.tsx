@@ -61,7 +61,7 @@ export function HeroSection() {
   ]
 
   return (
-    <section className="relative min-h-screen bg-white overflow-hidden">
+    <section className="relative bg-white overflow-hidden">
       {/* Mobile Menu Backdrop */}
       {isMobileMenuOpen && (
         <div 
@@ -78,16 +78,20 @@ export function HeroSection() {
           <div className="container mx-auto px-4 sm:px-6 py-3 sm:py-4">
             <div className="flex items-center justify-between">
               {/* Logo */}
-              <div className="flex items-center gap-2 flex-shrink-0">
+              <button 
+                onClick={() => scrollToSection("#")}
+                className="flex items-center gap-2 flex-shrink-0 cursor-pointer hover:opacity-80 transition-opacity duration-200"
+                style={{ cursor: 'pointer' }}
+              >
                 <Image 
                   src="/images/slmi.png" 
                   alt="SLMI Pest Control Services" 
                   width={40} 
                   height={40} 
-                  className="h-8 sm:h-10 w-auto"
+                  className="h-8 sm:h-10 w-auto cursor-pointer"
                   priority
                 />
-              </div>
+              </button>
               
               {/* Desktop Navigation */}
               <div className="hidden lg:flex items-center gap-6 xl:gap-8">
@@ -197,28 +201,28 @@ export function HeroSection() {
       </nav>
 
       {/* Add padding top to account for fixed navbar */}
-      <div className="pt-20"></div>
+      <div className="pt-16 sm:pt-20"></div>
 
       {/* Hero Content */}
-      <div className="container mx-auto px-4 sm:px-6 py-4 lg:py-6">
-        {/* Black Rounded Container - Following site's design patterns */}
-        <div className="bg-[#0a0a0a] rounded-[2rem] sm:rounded-[3rem] lg:rounded-[4rem] overflow-hidden shadow-2xl min-h-[85vh] lg:h-[85vh]">
-          {/* Mobile Layout - Redesigned for better proportions */}
-          <div className="lg:hidden flex flex-col h-full">
-            {/* Content Section - Top positioned */}
-            <div className="text-white px-6 sm:px-8 pt-8 sm:pt-10 pb-6 flex flex-col flex-shrink-0">
+      <div className="container mx-auto px-4 sm:px-6 py-2 lg:py-6">
+        {/* Black Rounded Container - Optimized for mobile viewport */}
+        <div className="bg-[#0a0a0a] rounded-[1.5rem] sm:rounded-[2rem] lg:rounded-[4rem] overflow-hidden shadow-2xl">
+          {/* Mobile Layout - Redesigned to fit in viewport */}
+          <div className="lg:hidden">
+            {/* Content Section - Compact layout */}
+            <div className="text-white px-5 sm:px-6 pt-6 sm:pt-8 pb-4">
               {/* Rating Badge */}
-              <div className="flex items-center gap-2 mb-4">
+              <div className="flex items-center gap-2 mb-3">
                 <div className="flex items-center gap-1">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-3 h-3 sm:w-4 sm:h-4 fill-[#c83232] text-[#c83232]" />
+                    <Star key={i} className="w-3 h-3 fill-[#c83232] text-[#c83232]" />
                   ))}
                 </div>
-                <span className="text-xs sm:text-sm text-gray-400 font-medium">500+ ratings</span>
+                <span className="text-xs text-gray-400 font-medium">500+ ratings</span>
               </div>
 
-              {/* Main Headline */}
-              <h1 className="font-[family-name:var(--font-poppins)] text-2xl sm:text-3xl font-bold leading-tight tracking-tight mb-3">
+              {/* Main Headline - Reduced size for mobile */}
+              <h1 className="font-[family-name:var(--font-poppins)] text-xl sm:text-2xl font-bold leading-tight tracking-tight mb-3">
                 Reliable
                 <br />
                 Pest Control
@@ -226,15 +230,25 @@ export function HeroSection() {
                 for a Safer Tomorrow
               </h1>
 
-              {/* Description */}
-              <p className="text-sm sm:text-base text-gray-400 mb-6 leading-relaxed">
-                Available 24/7, dedicated to providing effective, eco-friendly pest solutions that protect your family, home, and business from unwanted pests.
+              {/* Description - Shorter for mobile */}
+              <p className="text-sm text-gray-400 mb-4 leading-relaxed">
+                Available 24/7, dedicated to providing effective, eco-friendly pest solutions that protect your family, home, and business.
               </p>
+
+              {/* CTA Button - Moved up */}
+              <Button 
+                size="default"
+                className="bg-[#c83232] hover:bg-[#a82828] text-white rounded-full px-6 h-10 text-sm font-semibold group mb-4 cursor-pointer"
+                onClick={() => window.location.href = "/contact"}
+              >
+                Book now
+                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+              </Button>
             </div>
 
-            {/* Image Section - Better positioned and sized */}
-            <div className="relative flex-1 px-6 sm:px-8 pb-6">
-              <div className="relative w-full h-full min-h-[280px] sm:min-h-[320px] rounded-[1.5rem] sm:rounded-[2rem] overflow-hidden shadow-xl">
+            {/* Image Section - Compact and properly sized */}
+            <div className="relative px-5 sm:px-6 pb-5 sm:pb-6">
+              <div className="relative w-full h-[200px] sm:h-[240px] rounded-[1rem] sm:rounded-[1.5rem] overflow-hidden shadow-lg">
                 <Image
                   src="/professional-pest-control-technician-in-white-prot.jpg"
                   alt="Professional pest control technician in protective gear treating a property"
@@ -245,31 +259,23 @@ export function HeroSection() {
               </div>
             </div>
 
-            {/* Bottom Actions */}
-            <div className="text-white px-6 sm:px-8 pb-8 flex flex-col gap-4">
-              {/* CTA Button */}
-              <Button 
-                size="lg"
-                className="bg-[#c83232] hover:bg-[#a82828] text-white rounded-full px-8 h-12 text-base font-semibold group w-full cursor-pointer"
-                onClick={() => window.location.href = "/contact"}
-              >
-                Book now
-                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-              </Button>
-
-              {/* Phone Number */}
-              <a 
-                href="tel:+919580574211"
-                className="flex items-center justify-center gap-2 text-white/80 hover:text-white transition-colors cursor-pointer py-2"
-              >
-                <Phone className="w-4 h-4" />
-                <span className="text-base font-medium">(+91)-95805-74211</span>
-              </a>
+            {/* Bottom Features - Compact */}
+            <div className="text-white px-5 sm:px-6 pb-6">
+              <div className="grid grid-cols-2 gap-3 pt-3 border-t border-white/10">
+                <div>
+                  <h3 className="text-xs text-white font-semibold mb-1">Experienced Professionals</h3>
+                  <p className="text-xs text-gray-400">Certified experts delivering results.</p>
+                </div>
+                <div>
+                  <h3 className="text-xs text-white font-semibold mb-1">24/7 Availability</h3>
+                  <p className="text-xs text-gray-400">Always ready for emergencies.</p>
+                </div>
+              </div>
             </div>
           </div>
 
           {/* Desktop Layout */}
-          <div className="hidden lg:grid lg:grid-cols-2 gap-0 h-full">
+          <div className="hidden lg:grid lg:grid-cols-2 gap-0 min-h-[75vh]">
             {/* Left Content */}
             <div className="text-white px-6 py-6 lg:px-8 lg:py-8 xl:px-12 xl:py-12 flex flex-col justify-center">
               {/* Rating Badge */}
@@ -334,6 +340,17 @@ export function HeroSection() {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Mobile Phone Number - Positioned outside the black container */}
+        <div className="lg:hidden mt-4 text-center">
+          <a 
+            href="tel:+919580574211"
+            className="inline-flex items-center gap-2 text-gray-600 hover:text-[#c83232] transition-colors cursor-pointer py-2 px-4 rounded-lg hover:bg-gray-50"
+          >
+            <Phone className="w-4 h-4" />
+            <span className="text-sm font-medium">(+91)-95805-74211</span>
+          </a>
         </div>
 
         {/* Bottom Stats - Hidden on Mobile */}

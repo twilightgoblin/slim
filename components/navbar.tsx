@@ -53,13 +53,13 @@ export function Navbar() {
         <div className="container mx-auto px-4 sm:px-6 py-3 sm:py-4">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-2 flex-shrink-0">
+            <Link href="/" className="flex items-center gap-2 flex-shrink-0 cursor-pointer hover:opacity-80 transition-opacity duration-200" style={{ cursor: 'pointer' }}>
               <Image 
                 src="/images/slmi.png" 
                 alt="SLMI Pest Control Services" 
                 width={40} 
                 height={40} 
-                className="h-8 sm:h-10 w-auto"
+                className="h-8 sm:h-10 w-auto cursor-pointer"
                 priority
               />
             </Link>

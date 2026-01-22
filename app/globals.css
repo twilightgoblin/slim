@@ -263,3 +263,12 @@
 .animate-marquee {
   animation: marquee 30s linear infinite;
 }
+
+/* Ensure logo link has pointer cursor */
+a[href="/"] {
+  cursor: pointer !important;
+}
+
+a[href="/"] img {
+  cursor: pointer !important;
+}
