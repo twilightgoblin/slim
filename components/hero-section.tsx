@@ -270,19 +270,19 @@ export function HeroSection() {
           {/* Desktop Layout */}
           <div className="hidden lg:grid lg:grid-cols-2 gap-0 h-full">
             {/* Left Content */}
-            <div className="text-white px-8 py-8 lg:px-12 lg:py-12 flex flex-col justify-center">
+            <div className="text-white px-6 py-6 lg:px-8 lg:py-8 xl:px-12 xl:py-12 flex flex-col justify-center">
               {/* Rating Badge */}
-              <div className="flex items-center gap-2 mb-6">
+              <div className="flex items-center gap-2 mb-4 lg:mb-6">
                 <div className="flex items-center gap-1">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-[#c83232] text-[#c83232]" />
+                    <Star key={i} className="w-3 h-3 lg:w-4 lg:h-4 fill-[#c83232] text-[#c83232]" />
                   ))}
                 </div>
-                <span className="text-sm text-gray-400 font-medium">500+ ratings</span>
+                <span className="text-xs lg:text-sm text-gray-400 font-medium">500+ ratings</span>
               </div>
 
               {/* Main Headline - Using Poppins */}
-              <h1 className="font-[family-name:var(--font-poppins)] text-4xl lg:text-5xl xl:text-5xl font-bold leading-[1.1] tracking-tight mb-5">
+              <h1 className="font-[family-name:var(--font-poppins)] text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold leading-[1.1] tracking-tight mb-4 lg:mb-5">
                 Reliable
                 <br />
                 Pest Control
@@ -291,38 +291,38 @@ export function HeroSection() {
               </h1>
 
               {/* Description */}
-              <p className="text-base text-gray-400 mb-8 leading-relaxed max-w-xl">
+              <p className="text-sm lg:text-base xl:text-lg text-gray-400 mb-6 lg:mb-8 leading-relaxed max-w-xl">
                 Available 24/7, dedicated to providing effective, eco-friendly pest solutions that protect your family, home, and business from unwanted pests.
               </p>
 
               {/* CTA Button */}
-              <div className="mb-10">
+              <div className="mb-8 lg:mb-10">
                 <Button 
                   size="lg"
-                  className="bg-[#c83232] hover:bg-[#a82828] text-white rounded-full px-8 h-[48px] text-base font-semibold group cursor-pointer"
+                  className="bg-[#c83232] hover:bg-[#a82828] text-white rounded-full px-6 lg:px-8 h-[44px] lg:h-[48px] text-sm lg:text-base font-semibold group cursor-pointer"
                   onClick={() => window.location.href = "/contact"}
                 >
                   Book now
-                  <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="w-4 h-4 lg:w-5 lg:h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </div>
 
               {/* Features */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-6 border-t border-white/10">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6 pt-4 lg:pt-6 border-t border-white/10">
                 <div>
-                  <h3 className="text-sm text-white font-semibold mb-1">Experienced Professionals</h3>
+                  <h3 className="text-xs lg:text-sm text-white font-semibold mb-1">Experienced Professionals</h3>
                   <p className="text-xs text-gray-400 leading-relaxed">Certified experts delivering reliable results.</p>
                 </div>
                 <div>
-                  <h3 className="text-sm text-white font-semibold mb-1">24/7 Availability</h3>
+                  <h3 className="text-xs lg:text-sm text-white font-semibold mb-1">24/7 Availability</h3>
                   <p className="text-xs text-gray-400 leading-relaxed">Always ready for emergency pest control.</p>
                 </div>
               </div>
             </div>
 
             {/* Right Image - With Padding and Rounded Corners */}
-            <div className="relative p-4 lg:p-5 flex items-center">
-              <div className="relative w-full h-full rounded-[2rem] lg:rounded-[2.2rem] overflow-hidden">
+            <div className="relative p-3 lg:p-4 xl:p-5 flex items-center">
+              <div className="relative w-full h-full rounded-[1.5rem] lg:rounded-[2rem] xl:rounded-[2.2rem] overflow-hidden">
                 <Image
                   src="/professional-pest-control-technician-in-white-prot.jpg"
                   alt="Professional pest control technician in protective gear treating a property"
@@ -336,7 +336,7 @@ export function HeroSection() {
         </div>
 
         {/* Bottom Stats - Hidden on Mobile */}
-        <div className="hidden md:grid grid-cols-2 md:grid-cols-4 gap-8 mt-8 mb-4 max-w-5xl mx-auto">
+        <div className="hidden md:grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-8 mt-6 lg:mt-8 mb-4 max-w-5xl mx-auto">
           {[
             { value: "3,000+", label: "Sites Treated" },
             { value: "8+", label: "Years Experience" },
@@ -344,22 +344,22 @@ export function HeroSection() {
             { value: "24/7", label: "Support Available" },
           ].map((stat) => (
             <div key={stat.label} className="text-center">
-              <p className="font-[family-name:var(--font-poppins)] text-4xl font-bold text-[#c83232] mb-2">{stat.value}</p>
-              <p className="text-sm text-gray-600 font-medium">{stat.label}</p>
+              <p className="font-[family-name:var(--font-poppins)] text-2xl lg:text-3xl xl:text-4xl font-bold text-[#c83232] mb-1 lg:mb-2">{stat.value}</p>
+              <p className="text-xs lg:text-sm text-gray-600 font-medium">{stat.label}</p>
             </div>
           ))}
         </div>
       </div>
 
       {/* Services Marquee */}
-      <div className="border-t border-gray-200 py-4 overflow-hidden bg-gray-50 mt-2">
+      <div className="border-t border-gray-200 py-3 lg:py-4 overflow-hidden bg-gray-50 mt-2">
         <div className="flex animate-marquee whitespace-nowrap">
           {[...Array(3)].map((_, i) => (
             <div key={i} className="flex items-center">
-              {["Termite Control", "Rodent Control", "Cockroach Control", "Bed Bug Control", "Mosquito Control"].map((service, index) => (
+              {["Termite Control", "Rodent Control", "Cockroach Control", "Bed Bug Control", "Mosquito Control"].map((service) => (
                 <span 
                   key={`${service}-${i}`}
-                  className="text-xl font-bold text-gray-400 hover:text-[#c83232] transition-colors duration-300 cursor-pointer mx-5"
+                  className="text-lg lg:text-xl font-bold text-gray-400 hover:text-[#c83232] transition-colors duration-300 cursor-pointer mx-4 lg:mx-5"
                 >
                   {service} •
                 </span>
