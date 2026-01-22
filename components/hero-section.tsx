@@ -205,23 +205,23 @@ export function HeroSection() {
         <div className="bg-[#0a0a0a] rounded-[4rem] lg:rounded-[4rem] overflow-hidden shadow-2xl h-[82vh] lg:h-[85vh] min-h-[600px] sm:min-h-[650px]">
           {/* Mobile Layout */}
           <div className="lg:hidden flex flex-col h-full">
-            {/* Image Section */}
-            <div className="relative p-4 sm:p-6 pt-6 sm:pt-8 flex-shrink-0">
-              <div className="relative w-full aspect-[4/3] sm:aspect-[4/3] rounded-[1.5rem] sm:rounded-[2rem] overflow-hidden">
+            {/* Image Section - Bigger and Better */}
+            <div className="relative p-3 sm:p-4 pt-4 sm:pt-6 flex-shrink-0">
+              <div className="relative w-full aspect-[16/10] sm:aspect-[16/9] rounded-[1.5rem] sm:rounded-[2rem] overflow-hidden shadow-lg">
                 <Image
                   src="/professional-pest-control-technician-in-white-prot.jpg"
                   alt="Professional pest control technician in protective gear treating a property"
                   fill
-                  className="object-cover"
+                  className="object-cover object-center"
                   priority
                 />
               </div>
             </div>
 
-            {/* Content Section */}
-            <div className="text-white px-4 sm:px-8 pb-6 sm:pb-8 flex flex-col flex-1">
+            {/* Content Section - Optimized spacing */}
+            <div className="text-white px-4 sm:px-6 pb-4 sm:pb-6 flex flex-col flex-1 justify-center">
               {/* Rating Badge */}
-              <div className="flex items-center gap-2 mb-4 sm:mb-6">
+              <div className="flex items-center gap-2 mb-3 sm:mb-4">
                 <div className="flex items-center gap-1">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className="w-3 h-3 sm:w-4 sm:h-4 fill-[#c83232] text-[#c83232]" />
@@ -240,12 +240,12 @@ export function HeroSection() {
               </h1>
 
               {/* Description */}
-              <p className="text-sm sm:text-base text-gray-400 mb-6 sm:mb-8 leading-relaxed">
+              <p className="text-sm sm:text-base text-gray-400 mb-4 sm:mb-6 leading-relaxed">
                 Available 24/7, dedicated to providing effective, eco-friendly pest solutions that protect your family, home, and business from unwanted pests.
               </p>
 
               {/* CTA Button */}
-              <div className="mb-4 sm:mb-6">
+              <div className="mb-3 sm:mb-4">
                 <Button 
                   size="lg"
                   className="bg-[#c83232] hover:bg-[#a82828] text-white rounded-full px-6 sm:px-8 h-[44px] sm:h-[48px] text-sm sm:text-base font-semibold group w-full cursor-pointer"
